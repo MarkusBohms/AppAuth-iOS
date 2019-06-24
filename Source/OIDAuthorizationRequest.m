@@ -421,6 +421,10 @@ NSString *const OIDOAuthorizationRequestCodeChallengeMethodS256 = @"S256";
 }
 
 - (NSString *)redirectScheme {
+  NSString* customRedirectScheme = [[self customRedirectScheme] scheme];
+  if (customRedirectScheme != nil) {
+    return customRedirectScheme;
+  }
   return [[self redirectURL] scheme];
 }
 
